@@ -1,18 +1,28 @@
-# docker-compose.yml
+version: '3'
+
 services:
   db:
     image: postgres
     environment:
       POSTGRES_PASSWORD: postgres
+
   bocoai:
     build: ./bocoai
     ports:
       - 8888:8888
     depends_on:
       - db
+    networks:
+      - backend
+
   bocoai-storefront:
     build: ./bocoai-storefront
     ports:
       - 3333:3333
     depends_on:
       - bocoai
+    networks:
+      - backend
+
+networks:
+  backend:
