@@ -1,5 +1,5 @@
 # bocoai/Dockerfile
-FROM node:14
+FROM node:18
 
 WORKDIR /usr/src/app
 
@@ -9,6 +9,6 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 8000
+EXPOSE 8888
 
 CMD [ "npx", "@medusajs/medusa-cli", "develop" ]
