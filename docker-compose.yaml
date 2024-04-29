@@ -8,12 +8,12 @@ services:
   bocoai:
     build: ./bocoai
     ports:
-      - 8000:8000
+      - 8888:8888
     depends_on:
       - db
   bocoai-storefront:
     build: ./bocoai-storefront
     ports:
-      - 3000:3000
+      - 3333:3333
     depends_on:
       - bocoai
