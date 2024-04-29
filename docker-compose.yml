@@ -1,0 +1,19 @@
+# docker-compose.yml
+version: '3'
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: example
+  bocoai:
+    build: ./bocoai
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+  bocoai-storefront:
+    build: ./bocoai-storefront
+    ports:
+      - 3000:3000
+    depends_on:
+      - bocoai
